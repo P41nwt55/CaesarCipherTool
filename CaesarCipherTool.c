@@ -1,26 +1,29 @@
 /*
-  _____                            _____ _       _            _______          _ 
+  _____                            _____ _       _            _______          _
  / ____|                          / ____(_)     | |          |__   __|        | |
 | |     __ _  ___  ___  __ _ _ __| |     _ _ __ | |__   ___ _ __| | ___   ___ | |
 | |    / _` |/ _ \/ __|/ _` | '__| |    | | '_ \| '_ \ / _ \ '__| |/ _ \ / _ \| |
 | |___| (_| |  __/\__ \ (_| | |  | |____| | |_) | | | |  __/ |  | | (_) | (_) | |
  \_____\__,_|\___||___/\__,_|_|   \_____|_| .__/|_| |_|\___|_|  |_|\___/ \___/|_|
-                                          | |                                    
+                                          | |
                                           |_|
-		This tool aims to create sentences using the Caesar Cipher method
-							_______*_______
+	This tool aims to create sentences using the Caesar Cipher method
+				_______*_______
 
-		Comments:
-		
-		- No special characters, punctuation, and whitespace are allowed
-							_______*_______
+	Comments:
 
-							Writed By P41n_wt55(Migdal_2035)
+	- No special characters, punctuation, and whitespace are allowed
+				_______*_______
+
+				Writed By P41n_wt55
+
+		GitHub: https://github.com/P41nwt55/CaesarCipherTool
 
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 const char alphabet[27] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 const int  alphaPositions = 27;
