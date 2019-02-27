@@ -25,22 +25,40 @@
 #include <string.h>
 #include <ctype.h>
 
-const char alphabet[27] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-const int  alphaPositions = 27;
+/*VARIAVEIS GLOBAIS QUE SERÃO USADAS
+||||||||||||||||||||||||||||||||||||
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
+#define CHAVE 3
+#define TAM_ALFA 27  //tamanho do alfabeto + 1 para o laço for
+
+char alfabeto[TAM_ALFA] = {"abcdefghijklmnopqrstuvwxyz"}; //alfabeto, base da criptografia
+
+/* inicio da função principal */
 
 int main(){
+	char buffer[20] = {"eder"};
+	int alfa_int[TAM_ALFA];
 
-	char entrada[2] = "a";
+		printf("Digite o texto:");
+						//pega a string digitada pelo usuário e armazena na variavel buffer
+	int tam_buffer = strlen(buffer);
+	int buffer_int[tam_buffer];
 
-	for(int i = 0; i < alphaPositions; i++){
+		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
-		if(entrada == alphabet[i]); printf("letra digitada %c\n",alphabet[i]);
+			for(int j = 0; j <= TAM_ALFA;j++){ //inicio do laço for filho
+			buffer_int[i] = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+			alfa_int[j] = alfabeto[j];
 
-	}
+			if(buffer_int[i] == alfa_int[j]) printf("%c",alfa_int[j+CHAVE]);
 
 
+							} //fim do laço for filho
 
-	
 
-return 0;
+					} //fim do laço for pai
+
+			printf("\n");
+
+	return 0;
 }
