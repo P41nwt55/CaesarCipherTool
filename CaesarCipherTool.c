@@ -35,7 +35,8 @@ char alfabeto[TAM_ALFA] = {"abcdefghijklmnopqrstuvwxyz"}; //alfabeto, base da cr
 
 /* inicio da função principal */
 
-int main(){
+int main(int argc, char *argv[]){
+
 	char buffer[100];
 	int alfa_int;
 	int buffer_int;
