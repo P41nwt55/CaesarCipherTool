@@ -58,34 +58,6 @@ while((opcao = getopt(argc ,argv, "h:c:d")) > 0){
 	}
 
 }
-/*  char buffer[100];
-	int alfa_int;
-	int buffer_int;
-	int chave;
-	int tam_buffer;
-
-		printf("Digite o texto:");
-		gets(buffer); //armazena o texto digitado em buffer
-
-		printf("\nDigite a chave:");
-		scanf("%d",&chave); //pega a chave de criptografia
-
-		tam_buffer = strlen(buffer); //pega o tamanha de buffer para usar no laço for
-
-		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
-
-			for(int j = 0; j <= TAM_ALFA;j++){ //inicio do laço for filho
-			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
-			alfa_int = alfabeto[j];
-
-			if(buffer_int == alfa_int) printf("%c",alfa_int + chave);
-
-
-							} //fim do laço for filho
-
-
-					} //fim do laço for pai
-*/
 			printf("\n");
 
 	return 0;
@@ -97,6 +69,8 @@ void cifra(char buffer[100],char chave[26]){
 	int key = atoi(chave);
 	int buffer_int, alfa_int;
 	int tam_buffer = strlen(buffer); //pega o tamanha de buffer para usar no laço for
+
+	printf("Cripto: ");
 
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
