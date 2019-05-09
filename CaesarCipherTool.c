@@ -30,9 +30,9 @@
 ||||||||||||||||||||||||||||||||||||
 VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
 
-#define TAM_ALFA 27  //tamanho do alfabeto + 1 para o laço for
+#define TAM_ALFA 79  //tamanho do alfabeto + 1 para o laço for
 
-char alfabeto[TAM_ALFA] = {"abcdefghijklmnopqrstuvwxyz"}; //alfabeto, base da criptografia
+char alfabeto[TAM_ALFA] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"; //alfabeto, base da criptografia
 
 // declarando funções
 void cifra(char buffer[100],char chave[26]);
@@ -74,11 +74,11 @@ void cifra(char buffer[100],char chave[26]){
 
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
-			for(int j = 0; j <= TAM_ALFA;j++){ //inicio do laço for filho
+			for(int j = 0; j <= 25;j++){ //inicio do laço for filho
 			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 			alfa_int = alfabeto[j];
-
-			if(buffer_int == alfa_int) printf("%c",alfa_int + key);
+			
+			if(buffer_int == alfa_int) printf("%c",alfabeto[j+key]);
 
 
 							} //fim do laço for filho
