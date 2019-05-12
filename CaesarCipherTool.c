@@ -30,7 +30,7 @@
 ||||||||||||||||||||||||||||||||||||
 VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
 
-#define TAM_ALFA 79  //tamanho do alfabeto + 1 para o laço for
+#define TAM_ALFA 53  //tamanho do alfabeto + 1 para o laço for
 
 char alfabeto[TAM_ALFA] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"; //alfabeto, base da criptografia
 
@@ -54,7 +54,7 @@ while((opcao = getopt(argc ,argv, "h:c:d")) > 0){
 		case 'c':
 			cifra(argv[2],argv[3]);
 			break;
-			case 'd':
+		case 'd':
 			decifra(argv[2],argv[3]);
 			break;
 		default:
@@ -102,7 +102,7 @@ void decifra(char buffer[100],char chave[26]){
 
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
-			for(int j = 26; j <= 52;j++){ //inicio do laço for filho
+			for(int j = 26; j <= 51;j++){ //inicio do laço for filho
 			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 			alfa_int = alfabeto[j];
 			
