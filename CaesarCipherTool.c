@@ -35,7 +35,8 @@ VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
 char alfabeto[TAM_ALFA] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"; //alfabeto, base da criptografia
 
 // declarando funções
-void cifra(char buffer[100],char chave[26]);
+void cifra(char buffer[100],char chave[26]);// declarando função que cifra a mensagem
+void decifra(char buffer[100],char chave[26]);//declaranda a função que decifra a mensagem
 void help(void);
 
 /* inicio da função principal */
@@ -52,6 +53,9 @@ while((opcao = getopt(argc ,argv, "h:c:d")) > 0){
 			break;
 		case 'c':
 			cifra(argv[2],argv[3]);
+			break;
+			case 'd':
+			decifra(argv[2],argv[3]);
 			break;
 		default:
 			break;
@@ -70,7 +74,7 @@ void cifra(char buffer[100],char chave[26]){
 	int buffer_int, alfa_int;
 	int tam_buffer = strlen(buffer); //pega o tamanha de buffer para usar no laço for
 
-	printf("Cripto: ");
+	printf("Cifragem: ");
 
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
@@ -86,6 +90,33 @@ void cifra(char buffer[100],char chave[26]){
 
 					} //fim do laço for pai
 }
+
+void decifra(char buffer[100],char chave[26]){
+
+
+	int key = atoi(chave);
+	int buffer_int, alfa_int;
+	int tam_buffer = strlen(buffer); //pega o tamanha de buffer para usar no laço for
+
+	printf("Decifragem: ");
+
+		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
+
+			for(int j = 26; j <= 52;j++){ //inicio do laço for filho
+			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+			alfa_int = alfabeto[j];
+			
+			if(buffer_int == alfa_int) printf("%c",alfabeto[j-key]);
+
+
+							} //fim do laço for filho
+
+
+					} //fim do laço for pai
+}
+
+
+
 void help(void){
 
 	printf("USO: ./CCT -[opcao] dado -[opcao] dado...\n\n");
