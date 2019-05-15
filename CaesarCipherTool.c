@@ -7,7 +7,7 @@
  \_____\__,_|\___||___/\__,_|_|   \_____|_| .__/|_| |_|\___|_|  |_|\___/ \___/|_|
                                           | |
                                           |_|
-	This tool aims to create sentences using the Caesar Cipher method
+	Funcionalidades:
 				_______*_______
 
 	Comments:
@@ -37,6 +37,7 @@ char alfabeto[TAM_ALFA] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
 // declarando funções
 void cifra(char buffer[100],char chave[26]);// declarando função que cifra a mensagem
 void decifra(char buffer[100],char chave[26]);//declaranda a função que decifra a mensagem
+void bruteForce(char buffer[100]);
 void help(void);
 
 /* inicio da função principal */
@@ -44,7 +45,7 @@ void help(void);
 int main(int argc, char **argv){
 
 int opcao;
-while((opcao = getopt(argc ,argv, "h:c:d")) > 0){
+while((opcao = getopt(argc ,argv, "h:c:d:b")) > 0){
 
 	switch (opcao)
 	{
@@ -56,6 +57,9 @@ while((opcao = getopt(argc ,argv, "h:c:d")) > 0){
 			break;
 		case 'd':
 			decifra(argv[2],argv[3]);
+			break;
+		case 'b':
+			bruteForce(argv[2]);
 			break;
 		default:
 			break;
@@ -115,13 +119,37 @@ void decifra(char buffer[100],char chave[26]){
 					} //fim do laço for pai
 }
 
+void bruteForce(char buffer[50]){
+
+int buffer_int, alfa_int;
+	int tam_buffer = strlen(buffer); //pega o tamanha de buffer para usar no laço for
+
+	for(int key = 1; key <= 26;key++) // aqui key é o indice de for e tambem a chave para ser testada 
+	{
+
+		printf("\n Chave %d: palavra: ", key);
+
+		for(int i = 0; i <= tam_buffer; i++)
+		{ //inicio do laço for pai
+
+			for(int j = 26; j <= 51;j++)
+			{ //inicio do laço for filho
+				buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+				alfa_int = alfabeto[j];
+			
+				if(buffer_int == alfa_int) printf("%c",alfabeto[j-key]);
+			}
+		}
+	}
+}
 
 
 void help(void){
 
-	printf("USO: ./CCT -[opcao] dado -[opcao] dado...\n\n");
+	printf("USO: ./CCT -[opcao] (palavra) (chave)...\n\n");
 	printf("-c 	cifra a palavra apos -c\n");
 	printf("-d 	decifra a palavra apos -d\n");
+	printf("-b 	testa as 26 chaves para a palavra apos -b(caso nao saiba a chave\n");
 	printf("-h	exibe esta ajuda\n");
 	printf("exemplo: ./CCT -c eder 3\n");
 }
