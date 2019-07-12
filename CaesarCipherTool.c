@@ -32,7 +32,7 @@ VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
 
 #define TAM_ALFA 53  //tamanho do alfabeto + 1 para o laço for
 
-char alfabeto[TAM_ALFA] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"; //alfabeto, base da criptografia
+char alfabeto[TAM_ALFA] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"; //alfabeto, base da criptografia
 
 // declarando funções
 void cifra(char buffer[100],char chave[26]);// declarando função que cifra a mensagem
@@ -83,7 +83,7 @@ void cifra(char buffer[100],char chave[26]){
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
 			for(int j = 0; j <= 25;j++){ //inicio do laço for filho
-			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+			buffer_int = toupper(buffer[i]); //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 			alfa_int = alfabeto[j];
 			
 			if(buffer_int == alfa_int) printf("%c",alfabeto[j+key]);
@@ -107,7 +107,7 @@ void decifra(char buffer[100],char chave[26]){
 		for(int i = 0; i <= tam_buffer; i++){ //inicio do laço for pai
 
 			for(int j = 26; j <= 51;j++){ //inicio do laço for filho
-			buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+			buffer_int = toupper(buffer[i]); //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 			alfa_int = alfabeto[j];
 			
 			if(buffer_int == alfa_int) printf("%c",alfabeto[j-key]);
@@ -134,7 +134,7 @@ int buffer_int, alfa_int;
 
 			for(int j = 26; j <= 51;j++)
 			{ //inicio do laço for filho
-				buffer_int = buffer[i]; //armazena o valor int do caracter do indice 'i' dar var 'buffer'
+				buffer_int = toupper(buffer[i]); //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 				alfa_int = alfabeto[j];
 			
 				if(buffer_int == alfa_int) printf("%c",alfabeto[j-key]);
