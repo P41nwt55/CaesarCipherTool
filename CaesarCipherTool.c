@@ -7,15 +7,8 @@
  \_____\__,_|\___||___/\__,_|_|   \_____|_| .__/|_| |_|\___|_|  |_|\___/ \___/|_|
                                           | |
                                           |_|
-	Funcionalidades:
-				_______*_______
 
-	Comments:
-
-	- No special characters, punctuation, and whitespace are allowed
-				_______*_______
-
-				Writed By P41n_wt55
+				Criado Por P41n_wt55(Eder_Oliveira)
 
 		GitHub: https://github.com/P41nwt55/CaesarCipherTool
 
@@ -37,15 +30,35 @@ char alfabeto[TAM_ALFA] = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
 // declarando funções
 void cifra(char buffer[100],char chave[26]);// declarando função que cifra a mensagem
 void decifra(char buffer[100],char chave[26]);//declaranda a função que decifra a mensagem
-void bruteForce(char buffer[100]);
+void bruteForce(char buffer[100]);//declarando a função que decifra no modo bruteforce
+void cifraTextoLongo(); // cifra um texto longo
+void decifraTextoLongo();
 void help(void);
 
 /* inicio da função principal */
 
 int main(int argc, char **argv){
 
-int opcao;
-while((opcao = getopt(argc ,argv, "h:c:d:b")) > 0){
+
+
+if(argc == 1){
+
+	char opcao;
+
+	printf("Deseja Cifrar ou Decifrar?[C/D]:\n");
+	opcao = getchar();
+	opcao = toupper(opcao);
+
+	if(opcao == 'C') cifraTextoLongo();
+
+	if(opcao == 'D') decifraTextoLongo();
+
+
+
+}else{
+	int opcao;
+
+	while((opcao = getopt(argc ,argv, "h:c:d:b")) > 0){
 
 	switch (opcao)
 	{
@@ -66,6 +79,7 @@ while((opcao = getopt(argc ,argv, "h:c:d:b")) > 0){
 	}
 
 }
+}
 			printf("\n");
 
 	return 0;
@@ -85,7 +99,7 @@ void cifra(char buffer[100],char chave[26]){
 			for(int j = 0; j <= 25;j++){ //inicio do laço for filho
 			buffer_int = toupper(buffer[i]); //armazena o valor int do caracter do indice 'i' dar var 'buffer'
 			alfa_int = alfabeto[j];
-			
+
 			if(buffer_int == alfa_int) printf("%c",alfabeto[j+key]);
 
 
@@ -143,6 +157,16 @@ int buffer_int, alfa_int;
 	}
 }
 
+void cifraTextoLongo(){
+
+//cifra um texto longo
+
+}
+void decifraTextoLongo(){
+
+//decifra um texto longo
+
+}
 
 void help(void){
 
