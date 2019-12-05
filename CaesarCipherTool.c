@@ -46,13 +46,19 @@ if(argc == 1){
 	char opcao;
 
 	printf("Deseja Cifrar ou Decifrar?[C/D]:\n");
-	opcao = getchar();
-	opcao = toupper(opcao);
+	opcao = toupper(getchar());
+	
+	if(opcao == 'C' || opcao == 'D'){
 
 	if(opcao == 'C') cifraTextoLongo();
 
 	if(opcao == 'D') decifraTextoLongo();
 
+	} else {
+		printf("opcao invalida!");
+	}
+
+	
 
 
 }else{
@@ -159,7 +165,13 @@ int buffer_int, alfa_int;
 
 void cifraTextoLongo(){
 
-//cifra um texto longo
+int chave;
+
+printf("Chave(1 a 26):");
+scanf("%d", &chave);
+
+
+
 
 }
 void decifraTextoLongo(){
